@@ -1,9 +1,6 @@
 use std::u32;
-
 use pyo3::prelude::*;
-//use pyo3::types::{PyDict, PyString, PyBytes};
-//use pyo3::wrap_pymodule;
-use openssl::{aes::unwrap_key, rsa::{Padding, Rsa}};
+use openssl::rsa::{Padding,Rsa};
 
 const SECRET: &'static str = "CHFfxQA3tqEZgKusgwZjmI5lFsoZxXGXnQLA97oYga2M33sLwREZyy1mWCM8GIIA";
 
