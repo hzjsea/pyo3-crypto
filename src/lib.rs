@@ -30,23 +30,6 @@ mod crypto_utils {
     }
 
 }
-
-// fn openssl_public_decrypt(pk:&[u8], msg: &[u8]) -> Result<Vec<u8>, ()> {
-//     let mut out: [u8; 4096] = [0;4096];
-//     let rsa = Rsa::public_key_from_pem(pk).unwrap();
-//     let size = rsa.public_decrypt(msg, &mut out, Padding::PKCS1).unwrap();
-//     Ok(out[..size].to_vec())
-// }
-
-
-// fn openssl_private_encrypt(pk:&[u8], msg: &[u8]) -> Result<Vec<u8>,()> {
-//     let mut out: [u8; 4096] = [0;4096];
-//     let rsa = Rsa::private_key_from_pem(pk).unwrap();
-//     let size = rsa.private_encrypt(msg, &mut out, Padding::PKCS1).unwrap();
-//     Ok(out[..size].to_vec())
-// }
-
-
 // create public/private key  create_key(1024)
 fn create_key(len:u32) -> (String,String){
     let rsa = openssl::rsa::Rsa::generate(len).unwrap();
@@ -149,25 +132,6 @@ fn yacrypto(_py: Python, m: &PyModule) -> PyResult<()> {
 
 #[cfg(test)]
 mod tests {
-
-    #[test]
-    fn it_works() {
-        // let key = "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCq1HmEIEUJbyRB4uX+sXcaRF83\n5lv8WxQGo/W2TL1dvYdKQxqNNdgmW9M5+tnxQ5O+Y5uzkTW3voYgmPRFj8/BLqZu\nygQDeOrn3Wan69b4FewwUanJugA36wyGHS9QkjMTO1aabkXiuEeWreF8jel0nPSG\nejKtqo3ZASqldL8nsQIDAQAB\n-----END PUBLIC KEY-----\n";
-        // let msg = "b4LIUV8m+Yl880NDMhQ9PYdZc8VlYib7KgTPrdMX8/Hjvmr371z2+x1KlerNR5CAG1uY0Qq2JLrrQOqteNWkt6kHxGE48TG3YfgjOxoYf3yeEcNtpI9EuoLJ8NyGoXtdHjHR5r/Ghlb02ZiVpGExxREmW5cq2ZbXpPvJoMAYtdU=";
-        // let data = openssl::base64::decode_block(&msg).unwrap(); // string to bytes
-        // // decode
-        // // println!("data =>  {:?}",data);
-        // let r = super::openssl_public_decrypt(key.as_bytes(),&data).unwrap();
-        // println!("r => {:?}",r);
-        // let fdata = openssl::base64::encode_block(&r); // bytes to string
-        // let orgin = "hPSHp6gtv00BpKmRtbZNrPSNMB25u2xU";
-
-        // println!("fdata => {:?}", fdata);
-        // println!("origin: {}", openssl::base64::encode_block(orgin.as_bytes()));
-        // assert_eq!(openssl::base64::encode_block(orgin.as_bytes()),fdata);
-    }
-    
-    
     use base64;
     #[test]
     fn works(){
