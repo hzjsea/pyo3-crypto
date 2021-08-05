@@ -1,0 +1,5 @@
+maturin==0.11.2
+semantic-version==2.8.5
+setuptools-rust==0.12.1
+toml==0.10.2
+yacrypto==0.1.0

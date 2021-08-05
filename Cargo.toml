@@ -1,0 +1,22 @@
+[package]
+name = "yacrypto"
+version = "0.1.0"
+authors = ["xgxzj <gongxun.xia@upai.com>","hzjsea <hzjsea@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "yacrypto"
+crate-type = ["cdylib"]
+
+[dependencies]
+openssl = { version = "0.10", features = ["vendored"]}
+hmac = {version = "0.11"}
+sha2 = {version = "0.9"}
+rand = "0.8"
+base64 = "0.13.0"
+
+[dependencies.pyo3]
+version = "0.14.0"
+features = ["extension-module"]
